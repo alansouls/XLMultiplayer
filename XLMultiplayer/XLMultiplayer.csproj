@@ -59,66 +59,80 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
-      <HintPath>..\References\UnityModManager\0Harmony.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\UnityModManager\0Harmony.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\References\Assembly-CSharp.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp-firstpass, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\References\Assembly-CSharp-firstpass.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="AwaitExtensions">
-      <HintPath>..\References\AwaitExtensions.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\AwaitExtensions.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="BFSAnimationCombiner">
-      <HintPath>..\References\BFSAnimationCombiner.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\BFSAnimationCombiner.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="BFSBuildTool">
-      <HintPath>..\References\BFSBuildTool.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\BFSBuildTool.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="BFSCheats">
-      <HintPath>..\References\BFSCheats.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\BFSCheats.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="BFSConsole">
-      <HintPath>..\References\BFSConsole.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\BFSConsole.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="BFSSaveSystem">
-      <HintPath>..\References\BFSSaveSystem.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\BFSSaveSystem.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="BFSUI">
-      <HintPath>..\References\BFSUI.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\BFSUI.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="BFSUtilities">
-      <HintPath>..\References\BFSUtilities.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\BFSUtilities.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="BFSUtils_SaveManager">
-      <HintPath>..\References\BFSUtils_SaveManager.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\BFSUtils_SaveManager.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="com.unity.multiplayer-hlapi.Runtime">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="ConsoleManagers">
-      <HintPath>..\References\ConsoleManagers.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\ConsoleManagers.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib, Version=1.2.0.246, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpZipLib.1.2.0\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\References\Newtonsoft.Json.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Ionic.Zip.Unity">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\Ionic.Zip.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Mixpanel">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\Mixpanel.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Posix">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\Mono.Posix.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Security">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -145,300 +159,148 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>..\References\Unity.Analytics.DataPrivacy.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>..\References\Unity.Analytics.StandardEvents.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>..\References\Unity.Analytics.Tracker.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.MemoryProfiler">
-      <HintPath>..\References\Unity.MemoryProfiler.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Polybrush">
-      <HintPath>..\References\Unity.Polybrush.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Core.Runtime">
-      <HintPath>..\References\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
-      <HintPath>..\References\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.HighDefinition.Runtime">
-      <HintPath>..\References\Unity.RenderPipelines.HighDefinition.Runtime.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>..\References\Unity.TextMeshPro.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\References\UnityEngine.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.AccessibilityModule">
-      <HintPath>..\References\UnityEngine.AccessibilityModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.Advertisements">
-      <HintPath>..\References\UnityEngine.Advertisements.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.AIModule">
-      <HintPath>..\References\UnityEngine.AIModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\References\UnityEngine.AnimationModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.ARModule">
-      <HintPath>..\References\UnityEngine.ARModule.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.AssetBundleModule">
-      <HintPath>..\References\UnityEngine.AssetBundleModule.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.AudioModule">
-      <HintPath>..\References\UnityEngine.AudioModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.ClothModule">
-      <HintPath>..\References\UnityEngine.ClothModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.ClusterInputModule">
-      <HintPath>..\References\UnityEngine.ClusterInputModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.ClusterRendererModule">
-      <HintPath>..\References\UnityEngine.ClusterRendererModule.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\References\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="UnityEngine.CrashReportingModule">
-      <HintPath>..\References\UnityEngine.CrashReportingModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.DirectorModule">
-      <HintPath>..\References\UnityEngine.DirectorModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.GameCenterModule">
-      <HintPath>..\References\UnityEngine.GameCenterModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.GridModule">
-      <HintPath>..\References\UnityEngine.GridModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.HotReloadModule">
-      <HintPath>..\References\UnityEngine.HotReloadModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.ImageConversionModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\References\UnityEngine.ImageConversionModule.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.IMGUIModule">
-      <HintPath>..\References\UnityEngine.IMGUIModule.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.InputLegacyModule">
-      <HintPath>..\References\UnityEngine.InputLegacyModule.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="UnityEngine.InputModule">
-      <HintPath>..\References\UnityEngine.InputModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.JSONSerializeModule">
-      <HintPath>..\References\UnityEngine.JSONSerializeModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.LocalizationModule">
-      <HintPath>..\References\UnityEngine.LocalizationModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.ParticleSystemModule">
-      <HintPath>..\References\UnityEngine.ParticleSystemModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.PerformanceReportingModule">
-      <HintPath>..\References\UnityEngine.PerformanceReportingModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.Physics2DModule">
-      <HintPath>..\References\UnityEngine.Physics2DModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\References\UnityEngine.PhysicsModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.ProfilerModule">
-      <HintPath>..\References\UnityEngine.ProfilerModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.ScreenCaptureModule">
-      <HintPath>..\References\UnityEngine.ScreenCaptureModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.SharedInternalsModule">
-      <HintPath>..\References\UnityEngine.SharedInternalsModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.SpatialTracking">
-      <HintPath>..\References\UnityEngine.SpatialTracking.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.SpriteMaskModule">
-      <HintPath>..\References\UnityEngine.SpriteMaskModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.SpriteShapeModule">
-      <HintPath>..\References\UnityEngine.SpriteShapeModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.StreamingModule">
-      <HintPath>..\References\UnityEngine.StreamingModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.SubstanceModule">
-      <HintPath>..\References\UnityEngine.SubstanceModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.TerrainModule">
-      <HintPath>..\References\UnityEngine.TerrainModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.TerrainPhysicsModule">
-      <HintPath>..\References\UnityEngine.TerrainPhysicsModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.TextCoreModule">
-      <HintPath>..\References\UnityEngine.TextCoreModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.TextRenderingModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\References\UnityEngine.TextRenderingModule.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TilemapModule">
-      <HintPath>..\References\UnityEngine.TilemapModule.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\UnityEngine.TilemapModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.TLSModule">
-      <HintPath>..\References\UnityEngine.TLSModule.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\UnityEngine.TLSModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>..\References\UnityEngine.UI.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\UnityEngine.UI.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UIElementsModule">
-      <HintPath>..\References\UnityEngine.UIElementsModule.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\UnityEngine.UIElementsModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UIModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\References\UnityEngine.UIModule.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\UnityEngine.UIModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UmbraModule">
-      <HintPath>..\References\UnityEngine.UmbraModule.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\UnityEngine.UmbraModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UNETModule">
-      <HintPath>..\References\UnityEngine.UNETModule.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\UnityEngine.UNETModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UnityAnalyticsModule">
-      <HintPath>..\References\UnityEngine.UnityAnalyticsModule.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\UnityEngine.UnityAnalyticsModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UnityConnectModule">
-      <HintPath>..\References\UnityEngine.UnityConnectModule.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\UnityEngine.UnityConnectModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UnityTestProtocolModule">
-      <HintPath>..\References\UnityEngine.UnityTestProtocolModule.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\UnityEngine.UnityTestProtocolModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
-      <HintPath>..\References\UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestAudioModule">
-      <HintPath>..\References\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestModule">
-      <HintPath>..\References\UnityEngine.UnityWebRequestModule.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\UnityEngine.UnityWebRequestModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestTextureModule">
-      <HintPath>..\References\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestWWWModule">
-      <HintPath>..\References\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.VehiclesModule">
-      <HintPath>..\References\UnityEngine.VehiclesModule.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\UnityEngine.VehiclesModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.VFXModule">
-      <HintPath>..\References\UnityEngine.VFXModule.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\UnityEngine.VFXModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.VideoModule">
-      <HintPath>..\References\UnityEngine.VideoModule.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\UnityEngine.VideoModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.VRModule">
-      <HintPath>..\References\UnityEngine.VRModule.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\UnityEngine.VRModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.WindModule">
-      <HintPath>..\References\UnityEngine.WindModule.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\UnityEngine.WindModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEngine.XR.LegacyInputHelpers">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.XRModule">
-      <HintPath>..\References\UnityEngine.XRModule.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\UnityEngine.XRModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityModManager, Version=0.17.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\References\UnityModManager\UnityModManager.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\UnityModManager\UnityModManager.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="ValveSockets">
       <HintPath>..\ValveSockets\ValveSockets.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="XInputDotNetPure">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\XInputDotNetPure.dll</HintPath>
+    </Reference>
+    <Reference Include="ZeroFormatter">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\ZeroFormatter.dll</HintPath>
+    </Reference>
+    <Reference Include="ZeroFormatter.Interfaces">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Skater XL\SkaterXL_Data\Managed\ZeroFormatter.Interfaces.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extra\GameOfSkate\GameOfSkateComponent.cs" />
+    <Compile Include="Extra\GameOfSkate\GameOfSkateManager.cs" />
     <Compile Include="Half.cs" />
     <Compile Include="HalfHelper.cs" />
     <Compile Include="Main.cs" />
@@ -493,6 +355,7 @@
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>
