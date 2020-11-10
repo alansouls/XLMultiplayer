@@ -16,6 +16,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Valve.Sockets;
+using XLMultiplayerServer.Extra.GameOfSkate;
 
 // TODO: Keep track of all connection uints and close unused connections
 
@@ -36,6 +37,10 @@ namespace XLMultiplayerServer {
 		Plugin = 12,
 		PluginHash = 13,
 		PluginFile = 14,
+		TrickSet = 15,
+		TrickCopy = 16,
+		JoinGameOfSkate = 17,
+		LeaveGameOfSkate = 18,
 		StillAlive = 254,
 		Disconnect = 255
 	}
@@ -111,6 +116,8 @@ namespace XLMultiplayerServer {
 
 		public List<Plugin> loadedPlugins { private set; get; } = new List<Plugin>();
 
+		private readonly GameOfSkateManager gameOfSkateManager;
+
 		public void DefaultMessageCallback(string message, ConsoleColor textColor, params object[] objects) {
 			Console.ForegroundColor = textColor;
 			Console.WriteLine(message, objects);
@@ -124,6 +131,7 @@ namespace XLMultiplayerServer {
 		public Server(LogMessage logCallback, LogChatMessage logChatCallback) {
 			LogMessageCallback = logCallback != null ? logCallback : DefaultMessageCallback;
 			LogChatMessageCallback = logChatCallback != null ? LogChatMessageCallback : DefaultChatMessageCallback;
+			gameOfSkateManager = new GameOfSkateManager();
 		}
 
 		public static string CalculateMD5(string filename) {
@@ -601,6 +609,53 @@ namespace XLMultiplayerServer {
 						fileServer.server.SendMessageToConnection(players[fromID].connection, pluginMessage);
 					}
 					break;
+				case OpCode.JoinGameOfSkate:
+					{
+						Player player = players[fromID];
+						gameOfSkateManager.AddPlayer(player.username);
+						SendGameOfSkateStatusToPlayers(OpCode.JoinGameOfSkate, server);
+					}
+					break;
+				case OpCode.TrickSet:
+					{
+						TrickComboMessage trick = GetTrick(buffer);
+						Player player = players[fromID];
+						if (player.username == gameOfSkateManager.CurrentPlayerTurn)
+							gameOfSkateManager.VerifyTrickSet(trick);
+						SendGameOfSkateStatusToPlayers(OpCode.TrickSet, server);
+					}
+					break;
+				case OpCode.TrickCopy:
+					{
+						TrickComboMessage trick = GetTrick(buffer);
+						Player player = players[fromID];
+						if (player.username == gameOfSkateManager.CurrentPlayerTurn)
+							gameOfSkateManager.VerifiyTrickCopied(trick);
+						SendGameOfSkateStatusToPlayers(OpCode.TrickCopy, server);
+					}
+					break;
+			}
+		}
+
+		private static TrickComboMessage GetTrick(byte[] buffer)
+		{
+			string trickJson = ASCIIEncoding.ASCII.GetString(buffer, 1, buffer.Length - 1);
+			var trick = JsonConvert.DeserializeObject<TrickComboMessage>(trickJson);
+			return trick;
+		}
+
+		private void SendGameOfSkateStatusToPlayers(OpCode code, NetworkingSockets server)
+		{
+			var gameOfSkateStateMessage = ASCIIEncoding.ASCII.GetBytes(JsonConvert.SerializeObject(gameOfSkateManager));
+			var msgBuffer = new byte[gameOfSkateStateMessage.Length + 1];
+			msgBuffer[0] = (byte)code;
+			Array.Copy(gameOfSkateStateMessage, 0, msgBuffer, 1, gameOfSkateStateMessage.Length);
+			foreach (var p in players)
+			{
+				if (p != null)
+				{
+					server.SendMessageToConnection(p.connection, msgBuffer);
+				}
 			}
 		}
 

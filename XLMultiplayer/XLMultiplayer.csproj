@@ -301,6 +301,7 @@
   <ItemGroup>
     <Compile Include="Extra\GameOfSkate\GameOfSkateComponent.cs" />
     <Compile Include="Extra\GameOfSkate\GameOfSkateManager.cs" />
+    <Compile Include="Extra\GameOfSkate\TrickComboMessage.cs" />
     <Compile Include="Half.cs" />
     <Compile Include="HalfHelper.cs" />
     <Compile Include="Main.cs" />

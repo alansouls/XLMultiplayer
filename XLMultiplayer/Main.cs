@@ -15,6 +15,7 @@ using UnityEngine.Networking;
 using Newtonsoft.Json.Linq;
 using System.Collections;
 using System.Diagnostics;
+using XLMultiplayer.Extra.GameOfSkate;
 
 namespace XLMultiplayer {
 	class Server {

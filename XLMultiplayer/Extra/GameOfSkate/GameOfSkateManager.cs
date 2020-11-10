@@ -1,33 +1,34 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using XLMultiplayerServer.Extra.GameOfSkate;
 
 namespace XLMultiplayer.Extra.GameOfSkate
 {
     public class GameOfSkateManager
     {
-        public bool IsTrickSet;
+        public Dictionary<string, int> Players;
 
-        public string CurrentTrick;
+        public bool IsTrickSet { get; set; }
 
-        public bool IsSettingTrick;
+        public string CurrentTrick { get; set; }
 
-        public bool IsCopyingTrick;
+        public bool IsSettingTrick { get; set; }
 
-        public int[] PlayerLetters;
+        public bool IsCopyingTrick { get; set; }
 
-        public string GameWord;
+        public string GameWord { get; set; }
 
-        public int PlayerCount;
+        public int PlayerCount { get; set; }
 
-        public int CurrentPlayerTurn;
+        public string CurrentPlayerTurn;
 
-        public bool IsTrickCopied;
+        public bool IsTrickCopied { get; set; }
 
-        public List<string> TricksDone;
+        public List<string> TricksDone { get; set; }
 
-        public bool WasTrickRepeated;
+        public bool WasTrickRepeated { get; set; }
 
-        public bool IsLastChance;
+        public bool IsLastChance { get; set; }
 
         public GameOfSkateManager()
         {
@@ -42,80 +43,9 @@ namespace XLMultiplayer.Extra.GameOfSkate
             CurrentTrick = "";
             IsSettingTrick = false;
             IsCopyingTrick = false;
-            PlayerLetters = new int[2];
-            PlayerCount = 2;
-            for (int i = 0; i < PlayerCount; ++i)
-                PlayerLetters[i] = 0;
-            CurrentPlayerTurn = 0;
             IsTrickCopied = false;
             GameWord = "SKATE";
             TricksDone = new List<string>();
-        }
-
-        /// <summary>
-        /// Returns if game is ended
-        /// </summary>
-        /// <param name="trickCombo"></param>
-        /// <returns></returns>
-        public void VerifiyTrickCopied(TrickCombo trickCombo)
-        {
-            IsCopyingTrick = false;
-            IsTrickSet = false;
-            var copiedTrick = string.Join(" ", trickCombo.Tricks.Select(s => s.ToString()));
-            if (copiedTrick == CurrentTrick && trickCombo.Landed)
-            {
-                IsTrickCopied = true;
-            }
-            else
-            {
-                PlayerLetters[CurrentPlayerTurn] += 1;
-                if (PlayerLetters[CurrentPlayerTurn] >= GameWord.Length && IsLastChance)
-                {
-                    Reset();
-                    return;
-                }
-                else if (PlayerLetters[CurrentPlayerTurn] >= GameWord.Length)
-                {
-                    IsTrickSet = true;
-                    PlayerLetters[CurrentPlayerTurn] -= 1;
-                    IsLastChance = true;
-                    return;
-                }
-                IsTrickCopied = false;
-            }
-            CurrentTrick = "";
-            NextPlayer();
-        }
-
-        public void VerifyTrickSet(TrickCombo trickCombo)
-        {
-            IsSettingTrick = false;
-            var trickName = string.Join(" ", trickCombo.Tricks.Select(s => s.ToString()));
-            var wasTrickRepeated = TricksDone.Contains(trickName);
-            if (trickCombo.Landed && !wasTrickRepeated)
-            {
-                IsTrickSet = true;
-                CurrentTrick = trickName;
-                TricksDone.Add(CurrentTrick);
-            }
-            WasTrickRepeated = wasTrickRepeated && trickCombo.Landed;
-            NextPlayer();
-        }
-
-        public void NextPlayer()
-        {
-            var nextPlayer = CurrentPlayerTurn + 1;
-            CurrentPlayerTurn = nextPlayer >= PlayerCount ? 0 : nextPlayer;
-        }
-
-        public void UnsetCurrentTrick()
-        {
-            if (!IsTrickSet)
-                return;
-            IsTrickSet = false;
-            IsSettingTrick = false;
-            IsCopyingTrick = false;
-            TricksDone.RemoveAt(TricksDone.Count - 1);
         }
 
         public void PrepareSetOrCopyTrick()

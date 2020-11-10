@@ -1,35 +1,33 @@
 ﻿
+using System;
+using System.Linq;
 using UnityEngine;
 
 namespace XLMultiplayer.Extra.GameOfSkate
 {
-    public class GameSkateUI : MonoBehaviour
+    public class GameOfSkateComponent : MonoBehaviour
     {
         public GameOfSkateManager GameOfSkateManagerInstance;
+        public string UserName { get; set; }
+        private bool blocked;
+
+        public bool isInGame;
 
         void Start()
         {
-            GameOfSkateManagerInstance = new GameOfSkateManager();
-            TrickManager.Instance.onComboEnded += OnComboEnded;
+            isInGame = false;
+            blocked = false;
+            GameOfSkateManagerInstance = null;
         }
 
         void Update()
         {
-            if (GameOfSkateManagerInstance == null)
+            if (GameOfSkateManagerInstance == null || blocked)
                 return;
 
-            if (Input.GetKeyDown(KeyCode.F1))
+            if (Input.GetKeyDown(KeyCode.F1) && UserName == GameOfSkateManagerInstance.CurrentPlayerTurn)
             {
                 GameOfSkateManagerInstance.PrepareSetOrCopyTrick();
-            }
-            else if (Input.GetKeyDown(KeyCode.F5))
-            {
-                GameOfSkateManagerInstance.UnsetCurrentTrick();
-            }
-            else if (Input.GetKeyDown(KeyCode.F6))
-            {
-                GameOfSkateManagerInstance.UnsetCurrentTrick();
-                GameOfSkateManagerInstance.NextPlayer();
             }
         }
 
@@ -39,60 +37,69 @@ namespace XLMultiplayer.Extra.GameOfSkate
             var scoreBoardY = 25;
             var scoreBoardOffsetY = 25;
             int scoreBoardX = Screen.width / 2 - maxPhraseWidht;
+            if (!isInGame)
+            {
+                GUI.Label(new Rect(scoreBoardX, scoreBoardY, maxPhraseWidht, 30), "Press F5 to join game of skate");
+                return;
+            }
             GUI.Label(new Rect(scoreBoardX, scoreBoardY, maxPhraseWidht, 30), "GAME OF SKATE SCOREBOARD");
             scoreBoardY += scoreBoardOffsetY;
             for (int i = 0; i < GameOfSkateManagerInstance.PlayerCount; ++i)
             {
-                char currentPlayerChar = i == GameOfSkateManagerInstance.CurrentPlayerTurn ? '*' : '\0';
-                GUI.Label(new Rect(scoreBoardX, scoreBoardY, maxPhraseWidht, 30), $"{currentPlayerChar} Player {i + 1}: {GameOfSkateManagerInstance.GameWord.Substring(0, GameOfSkateManagerInstance.PlayerLetters[i])}");
+                var player = GameOfSkateManagerInstance.Players.Keys.ElementAt(i);
+                char currentPlayerChar = player == GameOfSkateManagerInstance.CurrentPlayerTurn ? '*' : '\0';
+                GUI.Label(new Rect(scoreBoardX, scoreBoardY, maxPhraseWidht, 30), $"{currentPlayerChar} {player}: {GameOfSkateManagerInstance.GameWord.Substring(0, GameOfSkateManagerInstance.Players[player])}");
                 scoreBoardY += scoreBoardOffsetY;
             }
 
             var currentTrickY = 25;
             var currentTrickOfssetY = 25;
             int currentTrickX = Screen.width / 2;
-            GUI.Label(new Rect(currentTrickX, currentTrickY, maxPhraseWidht, 30), "Press F6 to pass turn to next player (also unsets current trick)");
-            currentTrickY += currentTrickOfssetY;
-            if (!GameOfSkateManagerInstance.IsSettingTrick && !GameOfSkateManagerInstance.IsCopyingTrick)
+            var isCurrentPlayer = GameOfSkateManagerInstance.CurrentPlayerTurn == UserName;
+            if (!blocked)
             {
-                GUI.Label(new Rect(currentTrickX, currentTrickY, maxPhraseWidht, 30), "Press F1 to set or copy a trick");
-                currentTrickY += currentTrickOfssetY;
-            }
-            if (GameOfSkateManagerInstance.IsTrickSet)
-            {
-                GUI.Label(new Rect(currentTrickX, currentTrickY, maxPhraseWidht, 30), "Press F5 to unset the current trick");
-                currentTrickY += currentTrickOfssetY;
-                GUI.Label(new Rect(currentTrickX, currentTrickY, maxPhraseWidht, 30), $"Current Trick: {GameOfSkateManagerInstance.CurrentTrick}");
-                currentTrickY += currentTrickOfssetY;
-            }
-            else if (GameOfSkateManagerInstance.IsSettingTrick)
-            {
-                GUI.Label(new Rect(currentTrickX, currentTrickY, maxPhraseWidht, 30), "Waiting for trick to be set");
-                currentTrickY += currentTrickOfssetY;
-            }
-            if (GameOfSkateManagerInstance.IsCopyingTrick)
-            {
-                GUI.Label(new Rect(currentTrickX, currentTrickY, maxPhraseWidht, 30), "Waiting for trick to be copied");
-                currentTrickY += currentTrickOfssetY;
-                if (GameOfSkateManagerInstance.IsLastChance)
+                if (!GameOfSkateManagerInstance.IsSettingTrick && !GameOfSkateManagerInstance.IsCopyingTrick && isCurrentPlayer)
                 {
-                    GUI.Label(new Rect(currentTrickX, currentTrickY, maxPhraseWidht, 30), "Last chance to land current trick!");
+                    GUI.Label(new Rect(currentTrickX, currentTrickY, maxPhraseWidht, 30), "Press F1 to set or copy a trick");
+                    currentTrickY += currentTrickOfssetY;
+                }
+                if (GameOfSkateManagerInstance.IsSettingTrick)
+                {
+                    GUI.Label(new Rect(currentTrickX, currentTrickY, maxPhraseWidht, 30), "Waiting for trick to be set");
+                    currentTrickY += currentTrickOfssetY;
+                }
+                if (GameOfSkateManagerInstance.IsCopyingTrick)
+                {
+                    GUI.Label(new Rect(currentTrickX, currentTrickY, maxPhraseWidht, 30), "Waiting for trick to be copied");
+                    currentTrickY += currentTrickOfssetY;
+                    if (GameOfSkateManagerInstance.IsLastChance)
+                    {
+                        GUI.Label(new Rect(currentTrickX, currentTrickY, maxPhraseWidht, 30), "Last chance to land current trick!");
+                        currentTrickY += currentTrickOfssetY;
+                    }
+                }
+                if (GameOfSkateManagerInstance.WasTrickRepeated)
+                {
+                    GUI.Label(new Rect(currentTrickX, currentTrickY, maxPhraseWidht, 30), "Couldn't set repeated trick");
                     currentTrickY += currentTrickOfssetY;
                 }
             }
-            if (GameOfSkateManagerInstance.WasTrickRepeated)
+            else
             {
-                GUI.Label(new Rect(currentTrickX, currentTrickY, maxPhraseWidht, 30), "Couldn't set repeated trick");
+                GUI.Label(new Rect(currentTrickX, currentTrickY, maxPhraseWidht, 30), "Waiting for server...");
                 currentTrickY += currentTrickOfssetY;
             }
         }
 
-        private void OnComboEnded(TrickCombo trickCombo)
+        public void Unblock(GameOfSkateManager updatedManager)
         {
-            if (GameOfSkateManagerInstance.IsCopyingTrick)
-                GameOfSkateManagerInstance.VerifiyTrickCopied(trickCombo);
-            else if (GameOfSkateManagerInstance.IsSettingTrick)
-                GameOfSkateManagerInstance.VerifyTrickSet(trickCombo);
+            GameOfSkateManagerInstance = updatedManager;
+            blocked = false;
+        }
+
+        public void Block()
+        {
+            blocked = true;
         }
     }
 }

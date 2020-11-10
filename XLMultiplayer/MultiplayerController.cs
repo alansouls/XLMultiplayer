@@ -23,6 +23,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Networking;
 using Valve.Sockets;
+using XLMultiplayer.Extra.GameOfSkate;
+using XLMultiplayerServer.Extra.GameOfSkate;
 
 // TODO: game of skate.... maybe?
 
@@ -48,6 +50,10 @@ namespace XLMultiplayer {
 		Plugin = 12,
 		PluginHash = 13,
 		PluginFile = 14,
+		TrickSet = 15,
+		TrickCopy = 16,
+		JoinGameOfSkate = 17,
+		LeaveGameOfSkate = 18,
 		StillAlive = 254,
 		Disconnect = 255
 	}
@@ -157,6 +163,8 @@ namespace XLMultiplayer {
 		private bool initiatingServerConnection = false;
 		private bool initiatingFileServerConnection = false;
 
+		public GameOfSkateComponent gameOfSkate;
+
 		// Open replay editor on start to prevent null references to replay editor instance
 		public void Start() {
 			MultiplayerController.Instance = this;
@@ -177,6 +185,8 @@ namespace XLMultiplayer {
 				AudioSource newSource = Traverse.Create(audioPlayer).Property("audioSource").GetValue<AudioSource>();
 				if (newSource != null) MultiplayerUtils.audioPlayerNames.Add(newSource.name);
 			}
+			gameOfSkate = gameObject.AddComponent<GameOfSkateComponent>();
+			TrickManager.Instance.onComboEnded += OnComboEnded;
 		}
 
 		private void InitializeStyle() {
@@ -306,7 +316,7 @@ namespace XLMultiplayer {
 			this.playerController.username = user;
 
 			// TODO: Add popup window with a download for vc_redistx64.exe
-			
+
 			Library.Initialize();
 
 			client = new NetworkingSockets();
@@ -490,8 +500,15 @@ namespace XLMultiplayer {
 
 		public void Update() {
 			FrameWatch.Restart();
+			gameOfSkate.UserName = this.playerController.username;
 
 			recentTimeSinceStartup = Time.realtimeSinceStartup;
+
+			if (Input.GetKeyDown(KeyCode.F5) && !gameOfSkate.isInGame)
+			{
+				SendBytes(OpCode.JoinGameOfSkate, new byte[] { }, true);
+				gameOfSkate.Block();
+			}
 
 			if (networkMessageQueue != null) {
 				GC.KeepAlive(networkMessageQueue);
@@ -980,10 +997,25 @@ namespace XLMultiplayer {
 						}
 					}
 					break;
+				case OpCode.JoinGameOfSkate:
+					gameOfSkate.isInGame = true;
+					UpdateGameOfSkateState(buffer);
+					break;
+				case OpCode.LeaveGameOfSkate:
+				case OpCode.TrickCopy:
+				case OpCode.TrickSet:
+					UpdateGameOfSkateState(buffer);
+					break;
 			}
 
 			messageTime.Stop();
 			proccessedMessages.Add(Tuple.Create(messageTime.Elapsed.TotalMilliseconds, opCode));
+		}
+
+		private void UpdateGameOfSkateState(byte[] buffer)
+		{
+			GameOfSkateManager updatedManager = JsonConvert.DeserializeObject<GameOfSkateManager>(ASCIIEncoding.ASCII.GetString(buffer, 1, buffer.Length - 1));
+			gameOfSkate.Unblock(updatedManager);
 		}
 
 		private void EnablePlugin(Plugin localPlugin, byte pluginID) {
@@ -1190,6 +1222,17 @@ namespace XLMultiplayer {
 
 				usernameMessage = message;
 			}
+		}
+
+		private void OnComboEnded(TrickCombo trickCombo)
+		{
+			if (!gameOfSkate.GameOfSkateManagerInstance.IsCopyingTrick && !gameOfSkate.GameOfSkateManagerInstance.IsSettingTrick)
+				return;
+			var trickMessage = new TrickComboMessage(trickCombo);
+			var trickMessageJsonBytes = ASCIIEncoding.ASCII.GetBytes(JsonConvert.SerializeObject(trickMessage));
+			OpCode opCode = gameOfSkate.GameOfSkateManagerInstance.IsCopyingTrick ? OpCode.TrickCopy : OpCode.TrickSet;
+			SendBytes(opCode, trickMessageJsonBytes, true);
+			gameOfSkate.Block();
 		}
 
 		public void SendChatMessage(string msg) {
