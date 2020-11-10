@@ -63,6 +63,11 @@ namespace XLMultiplayer.Extra.GameOfSkate
                     GUI.Label(new Rect(currentTrickX, currentTrickY, maxPhraseWidht, 30), "Press F1 to set or copy a trick");
                     currentTrickY += currentTrickOfssetY;
                 }
+                if (GameOfSkateManagerInstance.IsTrickSet)
+                {
+                    GUI.Label(new Rect(currentTrickX, currentTrickY, maxPhraseWidht, 30), $"Current Trick: {GameOfSkateManagerInstance.CurrentTrick}");
+                    currentTrickY += currentTrickOfssetY;
+                }
                 if (GameOfSkateManagerInstance.IsSettingTrick)
                 {
                     GUI.Label(new Rect(currentTrickX, currentTrickY, maxPhraseWidht, 30), "Waiting for trick to be set");
