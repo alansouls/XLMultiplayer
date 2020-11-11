@@ -10,12 +10,11 @@ namespace XLMultiplayer.Extra.GameOfSkate
         public GameOfSkateManager GameOfSkateManagerInstance;
         public string UserName { get; set; }
         private bool blocked;
-
-        public bool isInGame;
+        public bool IsInGame { get; private set; }
 
         void Start()
         {
-            isInGame = false;
+            IsInGame = false;
             blocked = false;
             GameOfSkateManagerInstance = null;
         }
@@ -37,7 +36,7 @@ namespace XLMultiplayer.Extra.GameOfSkate
             var scoreBoardY = 25;
             var scoreBoardOffsetY = 25;
             int scoreBoardX = Screen.width / 2 - maxPhraseWidht;
-            if (!isInGame)
+            if (!IsInGame)
             {
                 GUI.Label(new Rect(scoreBoardX, scoreBoardY, maxPhraseWidht, 30), "Press F5 to join game of skate");
                 return;
@@ -100,6 +99,7 @@ namespace XLMultiplayer.Extra.GameOfSkate
         {
             GameOfSkateManagerInstance = updatedManager;
             blocked = false;
+            IsInGame = GameOfSkateManagerInstance.Players.ContainsKey(UserName);
         }
 
         public void Block()

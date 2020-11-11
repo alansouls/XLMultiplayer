@@ -504,7 +504,7 @@ namespace XLMultiplayer {
 
 			recentTimeSinceStartup = Time.realtimeSinceStartup;
 
-			if (Input.GetKeyDown(KeyCode.F5) && !gameOfSkate.isInGame)
+			if (Input.GetKeyDown(KeyCode.F5) && !gameOfSkate.IsInGame)
 			{
 				SendBytes(OpCode.JoinGameOfSkate, new byte[] { }, true);
 				gameOfSkate.Block();
@@ -998,9 +998,6 @@ namespace XLMultiplayer {
 					}
 					break;
 				case OpCode.JoinGameOfSkate:
-					UpdateGameOfSkateState(buffer);
-					gameOfSkate.isInGame = gameOfSkate.GameOfSkateManagerInstance.Players.ContainsKey(gameOfSkate.UserName);
-					break;
 				case OpCode.LeaveGameOfSkate:
 				case OpCode.TrickCopy:
 				case OpCode.TrickSet:
