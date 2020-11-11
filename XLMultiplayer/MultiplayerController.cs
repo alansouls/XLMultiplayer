@@ -998,8 +998,8 @@ namespace XLMultiplayer {
 					}
 					break;
 				case OpCode.JoinGameOfSkate:
-					gameOfSkate.isInGame = true;
 					UpdateGameOfSkateState(buffer);
+					gameOfSkate.isInGame = gameOfSkate.GameOfSkateManagerInstance.Players.ContainsKey(gameOfSkate.UserName);
 					break;
 				case OpCode.LeaveGameOfSkate:
 				case OpCode.TrickCopy:
